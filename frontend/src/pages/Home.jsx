@@ -43,7 +43,7 @@ const Home = () => {
             A full-stack growth arsenal engineered for category-leading brands.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="services-grid grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
             { icon: <LineChart size={22} />, title: "SEO Architecture", body: "Semantic authority and algorithmic dominance for high-intent organic capture.", color: "text-cyan-400" },
             { icon: <MousePointerClick size={22} />, title: "Precision PPC", body: "Predictive bidding and multi-channel retargeting that compounds ROAS.", color: "text-orange-400" },
@@ -53,7 +53,7 @@ const Home = () => {
             <article
               key={s.title}
               data-testid={`home-service-${i}`}
-              className="glass-card rounded-2xl p-7 group hover:-translate-y-1 transition-transform duration-300"
+              className="glass-card rounded-2xl p-7 group cursor-pointer"
             >
               <div className={`w-11 h-11 rounded-xl grid place-items-center bg-white/5 border border-white/10 ${s.color}`}>
                 {s.icon}
@@ -69,7 +69,7 @@ const Home = () => {
       </section>
 
       {/* THE WORK */}
-      <section className="bg-[#080a0d] border-y border-white/5 py-24">
+      <section className="section-deep py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="flex items-end justify-between mb-12 flex-wrap gap-6">
             <div>

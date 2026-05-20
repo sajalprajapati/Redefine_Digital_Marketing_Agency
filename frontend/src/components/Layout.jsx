@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import { SiteBackground } from "./SiteBackground";
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -104,7 +105,8 @@ export const Footer = () => {
 };
 
 export const PageShell = ({ children }) => (
-  <div className="min-h-screen flex flex-col">
+  <div className="min-h-screen flex flex-col relative">
+    <SiteBackground />
     <Navbar />
     <main className="flex-1 pt-[72px]">{children}</main>
     <Footer />

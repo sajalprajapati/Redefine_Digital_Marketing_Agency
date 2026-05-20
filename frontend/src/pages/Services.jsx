@@ -21,7 +21,7 @@ const Services = () => {
 
       {/* SERVICE CARDS */}
       <section className="max-w-7xl mx-auto px-6 lg:px-10 -mt-16 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="services-grid grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Precision SEO */}
           <article className="glass-card rounded-2xl p-7" data-testid="service-seo">
             <div className="flex items-start justify-between">

@@ -53,7 +53,7 @@ const About = () => {
       </section>
 
       {/* STATS */}
-      <section className="border-y border-white/5 bg-[#080a0d]">
+      <section className="section-deep">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
           {[
             { v: "12+", l: "Years of Prestige" },
@@ -81,9 +81,9 @@ const About = () => {
             { n: "Elena Vance", r: "CHIEF OF OPERATIONS", d: "Expert in scaling digital infrastructure and optimizing complex marketing ecosystems.", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" },
             { n: "Marcus Sterling", r: "CHIEF TECHNOLOGY OFFICER", d: "Architecting next-gen web technologies and AI integrations for global enterprises.", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80" },
           ].map((m) => (
-            <article key={m.n} className="rounded-2xl overflow-hidden border border-white/5">
+            <article key={m.n} className="rounded-2xl overflow-hidden border border-white/5 glass-card">
               <img src={m.img} alt={m.n} className="w-full h-80 object-cover grayscale" />
-              <div className="p-6 bg-[#0a0c10]">
+              <div className="p-6">
                 <h4 className="text-lg font-semibold text-white">{m.n}</h4>
                 <div className="text-[10px] tracking-widest text-cyan-400 mt-1">{m.r}</div>
                 <p className="mt-3 text-slate-400 text-sm">{m.d}</p>
