@@ -2,7 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ContactForm } from "../components/ContactForm";
 import { Reveal } from "../components/Reveal";
-import { ArrowRight, LineChart, MousePointerClick, Share2, FileText, Quote } from "lucide-react";
+import {
+  ArrowRight, Search, Megaphone, Share2, PenTool, BarChart3,
+  Mail, Sparkles, Quote
+} from "lucide-react";
 
 const Home = () => {
   return (
@@ -17,11 +20,11 @@ const Home = () => {
             data-testid="hero-title"
             className="anim-fade-up anim-delay-1 mt-6 text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white"
           >
-            Next-Gen <span className="text-cyan-400 glow-cyan">Marketing</span>
+            Marketing that <span className="text-cyan-400 glow-cyan">Converts.</span>
           </h1>
-          <p className="anim-fade-up anim-delay-2 mt-6 text-slate-300 max-w-2xl mx-auto text-base sm:text-lg">
-            We architect digital ecosystems where high-performance technology meets avant-garde
-            creativity. Engineering measurable dominance for ambitious brands.
+          <p className="anim-fade-up anim-delay-2 mt-6 text-[#BFC3C7] max-w-2xl mx-auto text-base sm:text-lg">
+            A digital marketing agency for ambitious brands. We blend performance media, sharp
+            creative and conversion-focused strategy to grow your revenue — not your follower count.
           </p>
           <div className="anim-fade-up anim-delay-3 mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link to="/contact" data-testid="hero-get-started" className="btn-cyan inline-flex items-center gap-2">
@@ -36,34 +39,100 @@ const Home = () => {
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-[#050608]" />
       </section>
 
+      {/* QUICK STATS */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-10 -mt-4 mb-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            { v: "120+", l: "Brands Scaled" },
+            { v: "$8M+", l: "Ad Spend Managed" },
+            { v: "4.2x", l: "Average ROAS" },
+            { v: "12+", l: "Industries Served" },
+          ].map((s, i) => (
+            <Reveal key={s.l} variant="up" delay={i * 100}>
+              <div className="glass-card rounded-2xl p-5 text-center">
+                <div className="text-2xl sm:text-3xl font-extrabold text-white">{s.v}</div>
+                <div className="text-[10px] tracking-[0.3em] text-[#8D8D8D] mt-1 uppercase">{s.l}</div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
       {/* PRECISION SERVICES */}
       <section className="max-w-7xl mx-auto px-6 lg:px-10 py-24">
         <Reveal variant="up">
           <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-5xl font-bold text-white">Precision Services</h2>
-            <p className="mt-3 text-slate-400 max-w-2xl mx-auto text-base">
-              A full-stack growth arsenal engineered for category-leading brands.
+            <span className="tag-pill">What We Do</span>
+            <h2 className="mt-5 text-3xl sm:text-5xl font-bold text-white">Full-Stack Digital Marketing</h2>
+            <p className="mt-3 text-[#BFC3C7] max-w-2xl mx-auto text-base">
+              Performance-driven campaigns, brand storytelling and conversion engineering — engineered
+              to grow ambitious businesses.
             </p>
           </div>
         </Reveal>
-        <div className="services-grid grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
-            { icon: <LineChart size={22} />, title: "SEO Architecture", body: "Semantic authority and algorithmic dominance for high-intent organic capture.", color: "text-cyan-400" },
-            { icon: <MousePointerClick size={22} />, title: "Precision PPC", body: "Predictive bidding and multi-channel retargeting that compounds ROAS.", color: "text-orange-400" },
-            { icon: <Share2 size={22} />, title: "Social Ecosystems", body: "Viral loops and community prestige — not just content, but cultural impact.", color: "text-cyan-400" },
-            { icon: <FileText size={22} />, title: "Neural Content", body: "AI-augmented editorial, cinematic video and thought leadership at scale.", color: "text-orange-400" },
+            {
+              icon: <Megaphone size={22} />,
+              title: "Performance Marketing",
+              body: "Meta, Google & YouTube Ads engineered for measurable ROAS. We scale spend with predictive bidding and creative-led campaign architecture.",
+              tags: ["Meta Ads", "Google Ads", "YouTube Ads"],
+              color: "text-cyan-400",
+            },
+            {
+              icon: <Search size={22} />,
+              title: "SEO & Content Strategy",
+              body: "Topical authority, technical SEO and content that ranks. We turn search demand into a compounding owned channel.",
+              tags: ["Technical SEO", "Content", "Local SEO"],
+              color: "text-orange-400",
+            },
+            {
+              icon: <Share2 size={22} />,
+              title: "Social Media Management",
+              body: "Daily content, community engagement and platform strategy across Instagram, LinkedIn, X and TikTok.",
+              tags: ["Instagram", "LinkedIn", "TikTok"],
+              color: "text-cyan-400",
+            },
+            {
+              icon: <PenTool size={22} />,
+              title: "Branding & Creative",
+              body: "Identity systems, ad creatives, reels, motion graphics and packaging. Brand-led visuals that stop the scroll.",
+              tags: ["Identity", "Reels", "Motion"],
+              color: "text-orange-400",
+            },
+            {
+              icon: <Mail size={22} />,
+              title: "Email & CRM Funnels",
+              body: "Lifecycle email, lead nurturing and retention sequences. Turn first-time buyers into long-term revenue.",
+              tags: ["Klaviyo", "Mailchimp", "HubSpot"],
+              color: "text-cyan-400",
+            },
+            {
+              icon: <BarChart3 size={22} />,
+              title: "Analytics & CRO",
+              body: "GA4, Mixpanel, server-side tracking and on-page experiments. Decisions backed by data, not guesses.",
+              tags: ["GA4", "A/B Tests", "Attribution"],
+              color: "text-orange-400",
+            },
           ].map((s, i) => (
-            <Reveal key={s.title} variant="up" delay={i * 120}>
+            <Reveal key={s.title} variant="up" delay={i * 110}>
               <article
                 data-testid={`home-service-${i}`}
                 className="glass-card rounded-2xl p-7 group cursor-pointer h-full"
               >
-                <div className={`w-11 h-11 rounded-xl grid place-items-center bg-white/5 border border-white/10 ${s.color}`}>
+                <div className={`w-12 h-12 rounded-xl grid place-items-center bg-white/5 border border-[#3A3A3A] ${s.color} group-hover:scale-110 transition-transform duration-500`}>
                   {s.icon}
                 </div>
-                <h3 className="mt-5 text-2xl font-bold text-white">{s.title}</h3>
-                <p className="mt-3 text-slate-400 text-sm leading-relaxed">{s.body}</p>
-                <Link to="/services" className="inline-flex items-center gap-2 mt-5 text-cyan-400 text-sm hover:gap-3 transition-all">
+                <h3 className="mt-5 text-xl font-bold text-white">{s.title}</h3>
+                <p className="mt-3 text-[#BFC3C7] text-sm leading-relaxed">{s.body}</p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {s.tags.map((t) => (
+                    <span key={t} className="text-[10px] tracking-wider px-2.5 py-1 rounded-full border border-[#3A3A3A] text-[#8D8D8D] uppercase">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <Link to="/services" className="inline-flex items-center gap-2 mt-6 text-cyan-400 text-sm hover:gap-3 transition-all">
                   Learn more <ArrowRight size={14} />
                 </Link>
               </article>
@@ -112,9 +181,9 @@ const Home = () => {
         </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
-            { name: "Adrian K.", role: "CMO, Aurora Watches", text: "Amorevia didn't just rebrand us — they engineered a 340% lift in conversion within two quarters. Surgical precision.", initial: "A" },
-            { name: "Mei Tanaka", role: "Founder, Vortex Capital", text: "From positioning to performance, the team operates with the rigor of a top-tier consultancy.", initial: "M" },
-            { name: "Daniel R.", role: "VP Growth, Nexus", text: "A rare blend of design taste and ruthless execution. They are now our default growth partner.", initial: "D" },
+            { name: "Adrian K.", role: "CMO, Aurora Watches", text: "Amorevia rebuilt our paid social from the ground up and 3x'd our ROAS in 90 days. Creative + numbers in equal measure.", initial: "A" },
+            { name: "Mei Tanaka", role: "Founder, Vortex Capital", text: "Our cost-per-lead dropped 62% while volume doubled. They actually understand fintech audiences and the compliance landscape.", initial: "M" },
+            { name: "Daniel R.", role: "VP Growth, Nexus SaaS", text: "From SEO to lifecycle email, they own our full-funnel. Best agency partnership we've had in 8 years.", initial: "D" },
           ].map((t, i) => (
             <Reveal key={t.name} variant="up" delay={i * 140}>
               <blockquote data-testid={`testimonial-${i}`} className="glass-card rounded-2xl p-7 h-full">

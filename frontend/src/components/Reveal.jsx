@@ -36,7 +36,7 @@ export const Reveal = ({
   children,
   variant = "up",
   delay = 0,
-  duration = 900,
+  duration = 1100,
   className = "",
   as = "div",
   ...rest
@@ -47,7 +47,7 @@ export const Reveal = ({
   const style = {
     transitionProperty: "opacity, transform, filter",
     transitionDuration: `${duration}ms`,
-    transitionTimingFunction: "cubic-bezier(0.22, 0.61, 0.36, 1)",
+    transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
     transitionDelay: `${delay}ms`,
     opacity: inView ? 1 : 0,
     transform: inView
