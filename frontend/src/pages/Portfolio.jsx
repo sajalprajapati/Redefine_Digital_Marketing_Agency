@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
+import { Reveal } from "../components/Reveal";
 import { Briefcase, ArrowRight } from "lucide-react";
 
 const ALL_PROJECTS = [
@@ -55,31 +56,31 @@ const Portfolio = () => {
       <section className="max-w-7xl mx-auto px-6 lg:px-10 mt-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {items.map((p, i) => (
-            <article
-              key={p.title}
-              data-testid={`project-${i}`}
-              className={`relative rounded-2xl overflow-hidden border border-white/5 group ${
-                i === 0 ? "lg:col-span-2 lg:row-span-1" : ""
-              }`}
-            >
-              <img
-                src={p.img}
-                alt={p.title}
-                className={`w-full ${i === 0 ? "h-[360px]" : "h-[280px]"} object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700`}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-6 flex items-end justify-between">
-                <div>
-                  <div className="text-xs tracking-widest text-orange-400">{p.tag}</div>
-                  <h3 className="text-2xl font-bold text-white mt-1">{p.title}</h3>
-                  <p className="text-slate-400 text-sm mt-1">{p.desc}</p>
+            <Reveal key={p.title} variant="up" delay={i * 120}
+              className={i === 0 ? "lg:col-span-2" : ""}>
+              <article
+                data-testid={`project-${i}`}
+                className="relative rounded-2xl overflow-hidden border border-white/5 group h-full"
+              >
+                <img
+                  src={p.img}
+                  alt={p.title}
+                  className={`w-full ${i === 0 ? "h-[360px]" : "h-[280px]"} object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700`}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-6 flex items-end justify-between">
+                  <div>
+                    <div className="text-xs tracking-widest text-orange-400">{p.tag}</div>
+                    <h3 className="text-2xl font-bold text-white mt-1">{p.title}</h3>
+                    <p className="text-slate-400 text-sm mt-1">{p.desc}</p>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-2xl font-bold text-cyan-400">{p.metric}</div>
+                    <div className="text-[10px] tracking-widest text-slate-400">{p.metricLabel}</div>
+                  </div>
                 </div>
-                <div className="text-right">
-                  <div className="text-2xl font-bold text-cyan-400">{p.metric}</div>
-                  <div className="text-[10px] tracking-widest text-slate-400">{p.metricLabel}</div>
-                </div>
-              </div>
-            </article>
+              </article>
+            </Reveal>
           ))}
         </div>
       </section>

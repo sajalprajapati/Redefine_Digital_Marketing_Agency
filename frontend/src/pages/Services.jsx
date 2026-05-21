@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Reveal } from "../components/Reveal";
 import { LineChart, MousePointerClick, Share2, FileText, Check, ArrowRight } from "lucide-react";
 
 const Services = () => {
@@ -85,24 +86,28 @@ const Services = () => {
 
       {/* PERFORMANCE WORKFLOW */}
       <section className="max-w-7xl mx-auto px-6 lg:px-10 py-28">
-        <div className="text-center">
-          <h2 className="text-3xl sm:text-5xl font-bold text-white">The Performance Workflow</h2>
-          <p className="mt-3 text-slate-400">How we translate data into market dominance.</p>
-        </div>
+        <Reveal variant="up">
+          <div className="text-center">
+            <h2 className="text-3xl sm:text-5xl font-bold text-white">The Performance Workflow</h2>
+            <p className="mt-3 text-slate-400">How we translate data into market dominance.</p>
+          </div>
+        </Reveal>
         <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
           {[
             { n: "01", t: "Diagnosis", d: "Deep audit of existing assets and competitive landscape mapping." },
             { n: "02", t: "Blueprint", d: "Architecting a bespoke multi-channel strategy for rapid scaling." },
             { n: "03", t: "Execution", d: "Precision implementation with real-time optimization cycles." },
             { n: "04", t: "Optimization", d: "Scaling winners and refining creative for maximum efficiency." },
-          ].map((s) => (
-            <div key={s.n} className="glass-card rounded-2xl p-6 text-center">
-              <div className="w-12 h-12 mx-auto rounded-full grid place-items-center bg-cyan-400 text-[#06121a] font-bold">
-                {s.n}
+          ].map((s, i) => (
+            <Reveal key={s.n} variant="up" delay={i * 130}>
+              <div className="glass-card rounded-2xl p-6 text-center h-full">
+                <div className="w-12 h-12 mx-auto rounded-full grid place-items-center bg-cyan-400 text-[#06121a] font-bold float-y">
+                  {s.n}
+                </div>
+                <h4 className="mt-4 text-xl font-semibold text-white">{s.t}</h4>
+                <p className="mt-2 text-slate-400 text-sm">{s.d}</p>
               </div>
-              <h4 className="mt-4 text-xl font-semibold text-white">{s.t}</h4>
-              <p className="mt-2 text-slate-400 text-sm">{s.d}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
