@@ -12,6 +12,9 @@
   --brand-soft: #7DD3FC;
   --orange: #F36C21;
   --orange-soft: #FB923C;
+  --glow-soft: #BFC3C7;       /* Soft White Glow */
+  --shadow-ring: #3A3A3A;     /* Dark Shadow Ring */
+  --stroke-grey: #8D8D8D;     /* Light Grey Stroke */
   --border-soft: rgba(255, 255, 255, 0.08);
   --bg-image: url('https://customer-assets.emergentagent.com/job_webpage-replica-tool/artifacts/avsn9q6b_IMG_0602.png');
 }
@@ -215,6 +218,162 @@ h1, h2, h3, h4, h5 { font-family: 'Outfit', sans-serif; letter-spacing: -0.02em;
   color: rgba(244,244,244,0.65);
   font-size: 0.95rem;
   transition: color 200ms;
+
+/* ============== YouTube Background ============== */
+.yt-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+.yt-bg iframe,
+.yt-bg__video {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 177.78vw;  /* 16:9 cover */
+  height: 56.25vw;  /* 16:9 cover */
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%) scale(1.05);
+  border: 0;
+  pointer-events: none;
+  object-fit: cover;
+}
+.yt-bg__video {
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+}
+.yt-bg__veil {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(70% 60% at 50% 50%, rgba(5,6,8,0.20) 0%, rgba(5,6,8,0.45) 60%, rgba(5,6,8,0.78) 100%),
+    linear-gradient(180deg, rgba(5,6,8,0.30) 0%, rgba(5,6,8,0.35) 50%, rgba(5,6,8,0.92) 100%);
+}
+
+/* ============== Showreel Button (red play) ============== */
+.showreel-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.4rem 1.25rem 0.4rem 0.4rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: #F4F4F4;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(14px);
+  transition: transform 360ms cubic-bezier(.2,.7,.2,1), background 280ms, border-color 280ms;
+  cursor: pointer;
+}
+.showreel-btn:hover { transform: translateY(-2px) scale(1.02); background: rgba(255,255,255,0.10); border-color: rgba(255,255,255,0.25); }
+.showreel-btn__icon {
+  width: 38px; height: 38px;
+  display: inline-grid; place-items: center;
+  border-radius: 999px;
+  background: #FF0000;
+  color: #fff;
+  box-shadow: 0 8px 24px -8px rgba(255,0,0,0.65), 0 0 0 6px rgba(255,0,0,0.12);
+  transition: transform 280ms cubic-bezier(.2,.7,.2,1), box-shadow 280ms;
+}
+.showreel-btn:hover .showreel-btn__icon {
+  transform: scale(1.08);
+  box-shadow: 0 12px 32px -8px rgba(255,0,0,0.8), 0 0 0 8px rgba(255,0,0,0.16);
+}
+.showreel-btn__label { font-size: 0.95rem; }
+
+/* ============== Showreel Modal ============== */
+.showreel-modal {
+  position: fixed; inset: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.82);
+  backdrop-filter: blur(16px);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  animation: fadeIn 280ms ease both;
+}
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+.showreel-modal__frame {
+  width: min(1100px, 100%);
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 40px 120px -20px rgba(50,185,242,0.35), 0 0 0 1px rgba(255,255,255,0.08);
+  transform: scale(0.94);
+  animation: zoomIn 380ms cubic-bezier(.2,.7,.2,1) forwards;
+}
+@keyframes zoomIn { to { transform: scale(1) } }
+.showreel-modal__frame iframe { width: 100%; height: 100%; border: 0; }
+.showreel-modal__close {
+  position: absolute;
+  top: 22px; right: 22px;
+  width: 44px; height: 44px;
+  border-radius: 999px;
+  display: grid; place-items: center;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.18);
+  cursor: pointer;
+  transition: background 200ms, transform 200ms;
+}
+.showreel-modal__close:hover { background: rgba(255,255,255,0.15); transform: rotate(90deg); }
+
+/* ============== Rotating Scroll Indicator ============== */
+@keyframes spinSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.scroll-indicator {
+  position: relative;
+  width: 120px; height: 120px;
+  border-radius: 999px;
+  display: grid; place-items: center;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(14px);
+  cursor: pointer;
+  transition: transform 360ms cubic-bezier(.2,.7,.2,1), background 280ms;
+}
+.scroll-indicator:hover { transform: scale(1.06); background: rgba(255,255,255,0.07); }
+.scroll-indicator__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  animation: spinSlow 14s linear infinite;
+}
+.scroll-indicator__text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.42em;
+  fill: #F4F4F4;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.scroll-indicator__arrow {
+  width: 38px; height: 38px;
+  border-radius: 999px;
+  display: grid; place-items: center;
+  background: linear-gradient(180deg, #32B9F2 0%, #1f9cd1 100%);
+  color: #04222e;
+  box-shadow: 0 0 24px -4px rgba(50,185,242,0.6);
+  animation: arrowBob 2.4s ease-in-out infinite;
+}
+@keyframes arrowBob { 0%, 100% { transform: translateY(-2px); } 50% { transform: translateY(2px); } }
+
+/* ============== Smoother global animations ============== */
+@keyframes fadeUpSoft {
+  from { opacity: 0; transform: translateY(28px); filter: blur(6px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+.anim-soft { animation: fadeUpSoft 900ms cubic-bezier(.2,.7,.2,1) both; }
+
+/* Stronger glow utilities */
+.glow-soft { box-shadow: 0 0 80px -10px rgba(191,195,199,0.18); }
+.ring-shadow { box-shadow: 0 0 0 1px var(--shadow-ring) inset, 0 20px 60px -20px rgba(0,0,0,0.7); }
+
 }
 .nav-link:hover { color: var(--ink); }
 .nav-link.active { color: var(--ink); }

@@ -23,10 +23,14 @@ export const Navbar = () => {
           <Link
             to="/"
             data-testid="brand-logo"
-            className="font-[Outfit] font-extrabold text-[1.35rem] tracking-tight text-white"
+            className="flex items-center gap-2.5 group"
           >
-            Amorevia<span className="text-cyan-400">.</span>
-            <span className="text-[0.95rem] font-medium text-slate-300 ml-1">Media</span>
+            <img
+              src="https://customer-assets.emergentagent.com/job_webpage-replica-tool/artifacts/iy6st2rv_IMG_0512.jpg"
+              alt="Amorevia Media"
+              className="w-11 h-11 rounded-full object-cover ring-1 ring-white/15 group-hover:ring-cyan-400/60 transition mix-blend-screen"
+              style={{ filter: "brightness(1.1) contrast(1.05)" }}
+            />
           </Link>
 
           <nav className="hidden md:flex items-center gap-10">
@@ -88,9 +92,16 @@ export const Footer = () => {
     <footer data-testid="site-footer" className="border-t border-white/5 mt-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div>
-          <div className="font-[Outfit] font-extrabold text-xl text-white">
-            Amorevia<span className="text-cyan-400">.</span>
-            <span className="text-sm text-slate-300 ml-1 font-medium">Media Agency</span>
+          <div className="flex items-center gap-2.5">
+            <img
+              src="https://customer-assets.emergentagent.com/job_webpage-replica-tool/artifacts/iy6st2rv_IMG_0512.jpg"
+              alt="Amorevia Media"
+              className="w-8 h-8 rounded-full object-cover ring-1 ring-white/15"
+            />
+            <div className="font-[Outfit] font-extrabold text-xl text-white">
+              Amorevia<span className="text-cyan-400">.</span>
+              <span className="text-sm text-slate-300 ml-1 font-medium">Media Agency</span>
+            </div>
           </div>
           <p className="text-xs text-slate-500 mt-2">© 2025 Amoreviamediaagency. All rights reserved.</p>
         </div>
