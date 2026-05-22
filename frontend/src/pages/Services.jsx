@@ -112,7 +112,7 @@ const Services = () => {
       </section>
 
       {/* PERFORMANCE WORKFLOW */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-10 py-28">
+      <section id="process" className="max-w-7xl mx-auto px-6 lg:px-10 py-28 scroll-mt-24">
         <Reveal variant="up">
           <div className="text-center">
             <span className="tag-pill">How We Work</span>

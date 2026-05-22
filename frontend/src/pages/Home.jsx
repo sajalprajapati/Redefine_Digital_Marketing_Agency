@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ContactForm } from "../components/ContactForm";
+import { ContactSection } from "../components/ContactSection";
+import { BrandMarquee } from "../components/BrandMarquee";
 import { Reveal } from "../components/Reveal";
 import {
   ArrowRight, Search, Megaphone, Share2, PenTool, BarChart3,
-  Mail, Sparkles, Quote
+  Mail, Quote
 } from "lucide-react";
 
 const Home = () => {
@@ -174,6 +175,9 @@ const Home = () => {
         </div>
       </section>
 
+      {/* TRUSTED BY — horizontal brand marquee */}
+      <BrandMarquee />
+
       {/* TESTIMONIALS */}
       <section className="max-w-7xl mx-auto px-6 lg:px-10 py-24">
         <Reveal variant="up">
@@ -204,22 +208,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA / CONTACT */}
-      <section className="relative bg-hero-soft py-24" id="contact">
-        <div className="max-w-4xl mx-auto px-6 lg:px-10 text-center">
-          <Reveal variant="blur">
-            <h2 className="text-3xl sm:text-5xl font-bold text-white">Start the <span className="text-orange-400 glow-orange">Ascent</span></h2>
-            <p className="mt-3 text-slate-300 max-w-xl mx-auto">
-              Tell us about your ambitions. We respond within one business day.
-            </p>
-          </Reveal>
-          <Reveal variant="scale" delay={160}>
-            <div className="mt-10 flex justify-center">
-              <ContactForm />
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      {/* GET A SERVICE / CONTACT */}
+      <ContactSection sectionNo="05" />
     </div>
   );
 };
