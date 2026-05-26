@@ -9,7 +9,7 @@ export const Navbar = () => {
   const links = [
     { to: "/portfolio", label: "Work" },
     { to: "/services", label: "Services" },
-    { to: "/services#process", label: "Process" },
+    { to: "/process", label: "Process" },
     { to: "/about", label: "Studio" },
   ];
 
@@ -23,17 +23,17 @@ export const Navbar = () => {
           <Link
             to="/"
             data-testid="brand-logo"
-            className="group inline-flex items-center gap-3"
+            className="brand-lockup group"
+            aria-label="Amorevia Media Agency home"
           >
-            <span className="logo-tile">
-              <img
-                src="https://customer-assets.emergentagent.com/job_webpage-replica-tool/artifacts/iy6st2rv_IMG_0512.jpg"
-                alt="Amorevia Media"
-              />
+            <span className="brand-lockup__word">
+              AM
+              <span className="brand-lockup__orb" aria-hidden="true" />
+              REVIA
             </span>
-            <span className="hidden sm:flex flex-col leading-none">
-              <span className="font-[Outfit] font-extrabold tracking-[0.18em] text-white text-[0.92rem]">AMOREVIA</span>
-              <span className="text-[0.62rem] tracking-[0.32em] text-[#8D8D8D] mt-1">MEDIA AGENCY</span>
+            <span className="brand-lockup__rule" aria-hidden="true" />
+            <span className="brand-lockup__sub">
+              MEDIA AGENCY
             </span>
           </Link>
 
@@ -58,7 +58,7 @@ export const Navbar = () => {
 
           <div className="flex items-center gap-3">
             <Link
-              to="/contact"
+              to="/contact#contact-form"
               data-testid="nav-get-started-btn"
               className="hidden sm:inline-flex nav-cta"
             >
@@ -88,7 +88,7 @@ export const Navbar = () => {
                 {l.label}
               </Link>
             ))}
-            <Link to="/contact" onClick={() => setOpen(false)} className="btn-cyan inline-block text-sm">
+            <Link to="/contact#contact-form" onClick={() => setOpen(false)} className="btn-cyan inline-block text-sm">
               Get a service
             </Link>
           </div>
@@ -127,7 +127,7 @@ export const Footer = () => {
               <li><Link to="/portfolio" className="hover:text-cyan-400 transition">Work</Link></li>
               <li><Link to="/services" className="hover:text-cyan-400 transition">Services</Link></li>
               <li><Link to="/about" className="hover:text-cyan-400 transition">About</Link></li>
-              <li><Link to="/contact" className="hover:text-cyan-400 transition">Get a service</Link></li>
+              <li><Link to="/contact#contact-form" className="hover:text-cyan-400 transition">Get a service</Link></li>
             </ul>
           </div>
 
@@ -171,7 +171,7 @@ export const Footer = () => {
 };
 
 export const PageShell = ({ children }) => (
-  <div className="min-h-screen flex flex-col relative">
+  <div className="min-h-screen flex flex-col relative isolate">
     <SiteBackground />
     <Navbar />
     <main className="flex-1 pt-[72px]">{children}</main>

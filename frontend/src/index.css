@@ -45,7 +45,10 @@ h1, h2, h3, h4, h5 { font-family: 'Outfit', sans-serif; letter-spacing: -0.02em;
 /* ============== Global parallax background ============== */
 .site-bg {
   position: fixed;
-  inset: 0;
+  top: -60vh;
+  left: 0;
+  right: 0;
+  height: 220vh;
   z-index: -2;
   background-image: var(--bg-image);
   background-size: cover;
@@ -159,31 +162,84 @@ h1, h2, h3, h4, h5 { font-family: 'Outfit', sans-serif; letter-spacing: -0.02em;
     0 0 60px -12px rgba(191, 195, 199, 0.10);
 }
 
-/* Zoom-out services grid on hover */
-.services-grid { transition: transform 500ms cubic-bezier(0.16,1,0.3,1); transform-origin: center center; }
-.services-grid:hover { transform: scale(0.97); }
+/* Zoom only the active service card on hover */
+.services-grid > * {
+  transition: transform 500ms cubic-bezier(0.16,1,0.3,1);
+  transform-origin: center center;
+}
 .services-grid > *:hover { transform: scale(1.04); z-index: 1; position: relative; }
 
-/* ============== Logo Tile ============== */
-.logo-tile {
-  width: 44px; height: 44px;
-  border-radius: 12px;
-  background: #ffffff;
-  display: inline-grid; place-items: center;
-  padding: 4px;
-  box-shadow:
-    0 0 0 1px #3A3A3A,
-    0 0 18px -2px rgba(191,195,199,0.25),
-    inset 0 0 0 1px rgba(255,255,255,0.6);
-  transition: transform 360ms cubic-bezier(0.16,1,0.3,1), box-shadow 360ms ease;
+/* ============== Brand Lockup ============== */
+.brand-lockup {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 132px;
+  min-height: 52px;
+  text-decoration: none;
 }
-.logo-tile img { width: 100%; height: 100%; object-fit: contain; border-radius: 8px; display: block; }
-.group:hover .logo-tile, .logo-tile:hover {
-  transform: translateY(-1px) scale(1.03);
+.brand-lockup__word {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.38rem;
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.015em;
+  color: #F4F4F4;
+}
+.brand-lockup__orb {
+  width: 24px;
+  height: 24px;
+  margin: 0 -1px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255,255,255,0.35), transparent 28%),
+    #F36C21;
   box-shadow:
-    0 0 0 1px #8D8D8D,
-    0 0 24px -2px rgba(50,185,242,0.45),
-    inset 0 0 0 1px rgba(255,255,255,0.6);
+    0 0 0 2px #050608,
+    0 0 0 3px rgba(50,185,242,0.9);
+}
+.brand-lockup__word::before {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -8px;
+  width: 56px;
+  height: 24px;
+  border-top: 4px solid #F4F4F4;
+  border-left: 4px solid #32B9F2;
+  transform: skewX(-24deg);
+  pointer-events: none;
+}
+.brand-lockup__word::after {
+  content: '';
+  position: absolute;
+  left: 70px;
+  top: -8px;
+  width: 38px;
+  height: 22px;
+  border-top: 4px solid #32B9F2;
+  border-radius: 50% 50% 0 0;
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+.brand-lockup__rule {
+  width: 116px;
+  height: 1px;
+  margin-top: 5px;
+  background: rgba(244,244,244,0.28);
+}
+.brand-lockup__sub {
+  margin-top: 2px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.56rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.22em;
+  color: rgba(244,244,244,0.84);
 }
 
 /* ============== Buttons ============== */
@@ -280,7 +336,6 @@ h1, h2, h3, h4, h5 { font-family: 'Outfit', sans-serif; letter-spacing: -0.02em;
   animation: marqueeScroll 42s linear infinite;
   will-change: transform;
 }
-.marquee:hover .marquee__track { animation-play-state: paused; }
 @keyframes marqueeScroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
@@ -305,6 +360,77 @@ h1, h2, h3, h4, h5 { font-family: 'Outfit', sans-serif; letter-spacing: -0.02em;
   display: inline-block;
   margin-left: 3rem;
   flex-shrink: 0;
+}
+
+/* ============== Client logo wall ============== */
+.client-logo-wall {
+  position: relative;
+  padding: 56px 0 80px;
+  background: linear-gradient(180deg, rgba(5,6,8,0.48), rgba(5,6,8,0.22));
+}
+.client-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  border-top: 1px solid rgba(255,255,255,0.16);
+  border-left: 1px solid rgba(255,255,255,0.12);
+  background:
+    radial-gradient(80% 120% at 70% 20%, rgba(50,185,242,0.10), transparent 60%),
+    rgba(0,0,0,0.18);
+  overflow: hidden;
+}
+.client-logo-cell {
+  min-height: 118px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 18px 12px;
+  border-right: 1px solid rgba(255,255,255,0.12);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.client-logo-mark {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: #F4F4F4;
+  text-shadow: 0 0 18px rgba(255,255,255,0.35);
+}
+.client-logo-img {
+  width: min(96px, 72%);
+  max-height: 42px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 16px rgba(255,255,255,0.24));
+}
+.client-logo-name {
+  max-width: 120px;
+  text-align: center;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.25;
+  text-transform: uppercase;
+  color: rgba(244,244,244,0.68);
+}
+.client-logo-mark--cyan { color: #32B9F2; text-shadow: 0 0 22px rgba(50,185,242,0.65); }
+.client-logo-mark--blue { color: #2EA8FF; text-shadow: 0 0 22px rgba(46,168,255,0.58); }
+.client-logo-mark--green { color: #9BE75E; text-shadow: 0 0 20px rgba(155,231,94,0.48); }
+.client-logo-mark--orange { color: #F36C21; text-shadow: 0 0 22px rgba(243,108,33,0.62); }
+.client-logo-mark--red { color: #FF4F4F; text-shadow: 0 0 22px rgba(255,79,79,0.62); }
+.client-logo-mark--magenta { color: #FF70D9; text-shadow: 0 0 22px rgba(255,112,217,0.55); }
+.client-logo-mark--yellow { color: #E6F04A; text-shadow: 0 0 20px rgba(230,240,74,0.52); }
+.client-logo-mark--light { color: #F4F4F4; }
+
+@media (max-width: 1024px) {
+  .client-logo-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .client-logo-wall { padding: 40px 0 56px; }
+  .client-logo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .client-logo-cell { min-height: 104px; }
 }
 
 /* ============== Editorial form ============== */
@@ -333,6 +459,7 @@ textarea.form-line:focus { border-bottom-color: #32B9F2; }
 input.form-line::placeholder,
 textarea.form-line::placeholder { color: rgba(141,141,141,0.7); }
 select.form-line option { background: #050608; color: #F4F4F4; }
+#contact-form { scroll-margin-top: 104px; }
 select.form-line {
   background-image: linear-gradient(45deg, transparent 50%, #8D8D8D 50%), linear-gradient(135deg, #8D8D8D 50%, transparent 50%);
   background-position: calc(100% - 14px) 50%, calc(100% - 8px) 50%;

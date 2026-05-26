@@ -111,35 +111,6 @@ const Services = () => {
         </div>
       </section>
 
-      {/* PERFORMANCE WORKFLOW */}
-      <section id="process" className="max-w-7xl mx-auto px-6 lg:px-10 py-28 scroll-mt-24">
-        <Reveal variant="up">
-          <div className="text-center">
-            <span className="tag-pill">How We Work</span>
-            <h2 className="mt-5 text-3xl sm:text-5xl font-bold text-white">The Growth Workflow</h2>
-            <p className="mt-3 text-[#BFC3C7]">From kick-off to scale in four disciplined stages.</p>
-          </div>
-        </Reveal>
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
-          {[
-            { n: "01", t: "Discover", d: "Brand, customer & competitor audits. We map your market and the levers that move it." },
-            { n: "02", t: "Blueprint", d: "A bespoke channel mix, creative brief and KPI ladder for the next 90 days." },
-            { n: "03", t: "Execute", d: "Daily campaign management, creative production and optimization sprints." },
-            { n: "04", t: "Scale", d: "Doubling down on winners, retiring losers, and compounding ROAS month over month." },
-          ].map((s, i) => (
-            <Reveal key={s.n} variant="up" delay={i * 130}>
-              <div className="glass-card rounded-2xl p-6 text-center h-full">
-                <div className="w-12 h-12 mx-auto rounded-full grid place-items-center bg-cyan-400 text-[#06121a] font-bold float-y">
-                  {s.n}
-                </div>
-                <h4 className="mt-4 text-xl font-semibold text-white">{s.t}</h4>
-                <p className="mt-2 text-[#BFC3C7] text-sm">{s.d}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="relative bg-hero-soft py-24">
         <Reveal variant="scale">
