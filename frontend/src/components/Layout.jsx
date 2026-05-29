@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { SiteBackground } from "./SiteBackground";
+import logo from "../assets/logo.PNG";
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -23,18 +24,10 @@ export const Navbar = () => {
           <Link
             to="/"
             data-testid="brand-logo"
-            className="brand-lockup group"
+            className="brand-logo-link h-full"
             aria-label="Amorevia Media Agency home"
           >
-            <span className="brand-lockup__word">
-              AM
-              <span className="brand-lockup__orb" aria-hidden="true" />
-              REVIA
-            </span>
-            <span className="brand-lockup__rule" aria-hidden="true" />
-            <span className="brand-lockup__sub">
-              MEDIA AGENCY
-            </span>
+            <img className="brand-logo-img" src={logo} alt="Amorevia Media Agency" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-10">

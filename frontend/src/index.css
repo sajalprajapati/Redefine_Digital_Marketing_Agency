@@ -169,77 +169,29 @@ h1, h2, h3, h4, h5 { font-family: 'Outfit', sans-serif; letter-spacing: -0.02em;
 }
 .services-grid > *:hover { transform: scale(1.04); z-index: 1; position: relative; }
 
-/* ============== Brand Lockup ============== */
-.brand-lockup {
+/* ============== Brand Logo ============== */
+.brand-logo-link {
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 132px;
-  min-height: 52px;
-  text-decoration: none;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  height: 100%;
 }
-.brand-lockup__word {
-  position: relative;
-  display: flex;
-  align-items: center;
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.38rem;
-  font-weight: 900;
-  line-height: 0.9;
-  letter-spacing: -0.015em;
-  color: #F4F4F4;
+.brand-logo-img {
+  display: block;
+  height: 56px;
+  width: auto;
+  max-width: 270px;
+  object-fit: contain;
+  object-position: left center;
+  object-view-box: inset(30% 5% 30% 5%);
+  mix-blend-mode: lighten;
 }
-.brand-lockup__orb {
-  width: 24px;
-  height: 24px;
-  margin: 0 -1px;
-  border-radius: 999px;
-  background:
-    radial-gradient(circle at 35% 30%, rgba(255,255,255,0.35), transparent 28%),
-    #F36C21;
-  box-shadow:
-    0 0 0 2px #050608,
-    0 0 0 3px rgba(50,185,242,0.9);
-}
-.brand-lockup__word::before {
-  content: '';
-  position: absolute;
-  left: -2px;
-  top: -8px;
-  width: 56px;
-  height: 24px;
-  border-top: 4px solid #F4F4F4;
-  border-left: 4px solid #32B9F2;
-  transform: skewX(-24deg);
-  pointer-events: none;
-}
-.brand-lockup__word::after {
-  content: '';
-  position: absolute;
-  left: 70px;
-  top: -8px;
-  width: 38px;
-  height: 22px;
-  border-top: 4px solid #32B9F2;
-  border-radius: 50% 50% 0 0;
-  transform: rotate(-12deg);
-  pointer-events: none;
-}
-.brand-lockup__rule {
-  width: 116px;
-  height: 1px;
-  margin-top: 5px;
-  background: rgba(244,244,244,0.28);
-}
-.brand-lockup__sub {
-  margin-top: 2px;
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.56rem;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.22em;
-  color: rgba(244,244,244,0.84);
+@media (max-width: 640px) {
+  .brand-logo-img {
+    height: 44px;
+    max-width: 210px;
+  }
 }
 
 /* ============== Buttons ============== */
