@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ContactSection } from "../components/ContactSection";
 import { BrandMarquee } from "../components/BrandMarquee";
+import { ClientLogoWall } from "../components/ClientLogoWall";
 import { Reveal } from "../components/Reveal";
 import {
   ArrowRight, Search, Megaphone, Share2, PenTool, BarChart3,
@@ -177,6 +178,7 @@ const Home = () => {
 
       {/* TRUSTED BY — horizontal brand marquee */}
       <BrandMarquee />
+      <ClientLogoWall />
 
       {/* TESTIMONIALS */}
       <section className="max-w-7xl mx-auto px-6 lg:px-10 py-24">

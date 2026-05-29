@@ -94,7 +94,7 @@ export const ContactSection = ({ id = "contact", sectionNo = "05" }) => {
           </div>
 
           {/* RIGHT: Form */}
-          <form onSubmit={submit} data-testid="contact-form" className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-7">
+          <form id="contact-form" onSubmit={submit} data-testid="contact-form" className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-7">
             <FormField label="Your Name *" required>
               <input
                 data-testid="contact-name"
